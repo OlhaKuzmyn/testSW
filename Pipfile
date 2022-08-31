@@ -7,7 +7,7 @@ name = "pypi"
 djangorestframework = "*"
 mysqlclient = "*"
 django-dotenv = "*"
-djangorestframework-simplejwt = "*"
+#djangorestframework-simplejwt = "*"
 
 [dev-packages]
 isort = "*"
