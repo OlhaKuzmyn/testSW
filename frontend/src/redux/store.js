@@ -1,9 +1,11 @@
 import {combineReducers, configureStore} from "@reduxjs/toolkit"
-import {groupUserReducer} from "./slices/group_user.slice";
+import {userReducer} from "./slices/users.slice";
+import {groupReducer} from "./slices/groups.slice";
 
 
 const rootReducer = combineReducers({
-    groupUserReducer
+    users: userReducer,
+    groups: groupReducer
 })
 
 const setupStore = () => configureStore({

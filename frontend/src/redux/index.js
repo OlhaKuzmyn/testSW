@@ -1,2 +1,3 @@
 export * from "./store";
-export * from "./slices/group_user.slice"
+export * from "./slices/groups.slice";
+export * from "./slices/users.slice"

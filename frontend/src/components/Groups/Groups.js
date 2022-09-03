@@ -1,14 +1,14 @@
 import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from "react-redux";
-import {groupUserActions} from "../../redux";
+import {groupActions} from "../../redux";
 import {Group} from "../Group/Group";
 
 const Groups = () => {
-    const {groups} = useSelector(state => state.groupUserReducer);
+    const {groups} = useSelector(state => state.groups);
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(groupUserActions.getGroups())
+        dispatch(groupActions.getAll())
     }, [dispatch])
 
     return (
