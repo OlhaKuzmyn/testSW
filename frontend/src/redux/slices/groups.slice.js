@@ -1,5 +1,5 @@
 import {createSlice, createAsyncThunk} from "@reduxjs/toolkit";
-import {groupUserService} from "../../services";
+import {groupService} from "../../services";
 
 const initialState = {
     groups: [],
@@ -9,7 +9,7 @@ const initialState = {
 const getAll = createAsyncThunk(
     'groupSlice/getAll',
     async () => {
-        const {data} = await groupUserService.getGroups();
+        const {data} = await groupService.getAll();
         return data
     }
 );
@@ -17,7 +17,7 @@ const getAll = createAsyncThunk(
 const createGroup = createAsyncThunk(
     'groupSlice/createGroup',
     async ({group}, {dispatch}) => {
-        const {data} = await groupUserService.createGroup(group);
+        const {data} = await groupService.create(group);
         dispatch(create({group: data}))
     }
 );
@@ -25,7 +25,7 @@ const createGroup = createAsyncThunk(
 const deleteById = createAsyncThunk(
     'groupSlice/deleteById',
     async ({id}, {dispatch}) =>{
-        await groupUserService.deleteGroupById(id);
+        await groupService.deleteById(id);
         dispatch(delGroup({id}))
     }
 );
@@ -33,7 +33,7 @@ const deleteById = createAsyncThunk(
 const updateById = createAsyncThunk(
     'groupSlice/updateById',
     async ({id, updGroup}, {dispatch}) => {
-        const {data} = await groupUserService.updateGroupById(id, updGroup);
+        const {data} = await groupService.updateById(id, updGroup);
         dispatch(updateGroup({updGroup: data, id}))
     }
 );

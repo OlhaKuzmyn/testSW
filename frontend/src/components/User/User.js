@@ -11,6 +11,7 @@ const User = ({user}) => {
             <p>{username}</p>
             <p>{created}</p>
             <p>group: {name}</p>
+            <button onClick={()=>dispatch(userActions.setUserForUpdate({user}))}>Update</button>
             <button onClick={()=>dispatch(userActions.deleteById({id}))}>Delete</button>
         </div>
     );
