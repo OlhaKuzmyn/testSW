@@ -1,5 +1,6 @@
 from rest_framework.generics import ListAPIView, RetrieveDestroyAPIView, UpdateAPIView
 
+from .filters import UserFilter
 from .models import OtherUserModel
 from .serializers import UserSerializer
 
@@ -7,6 +8,9 @@ from .serializers import UserSerializer
 class UserListView(ListAPIView):
     queryset = OtherUserModel.objects.all()
     serializer_class = UserSerializer
+    filterset_class = UserFilter
+    # def get_queryset(self):
+    #     self.queryset.filter(group_id=)
 
 
 class UserRetrieveDestroyView(RetrieveDestroyAPIView):

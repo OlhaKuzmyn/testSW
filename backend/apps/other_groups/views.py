@@ -2,6 +2,7 @@ from rest_framework.generics import CreateAPIView, ListCreateAPIView, RetrieveUp
 
 from apps.other_users.serializers import UserSerializer
 
+from .filters import GroupFilter
 from .models import OtherGroupModel
 from .serializers import GroupSerializer
 
@@ -9,6 +10,7 @@ from .serializers import GroupSerializer
 class GroupListCreateView(ListCreateAPIView):
     serializer_class = GroupSerializer
     queryset = OtherGroupModel.objects.all()
+    filterset_class = GroupFilter
 
 
 class GroupRetrieveUpdateDestroyView(RetrieveUpdateDestroyAPIView):

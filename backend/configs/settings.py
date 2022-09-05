@@ -44,14 +44,21 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     "corsheaders",
+    "graphene_django",
+    'django_filters',
     # 'rest_framework_simplejwt.token_blacklist',
 
     # Apps
     'core',
+    'apps.schema',
     'apps.other_users',
     'apps.other_groups',
 
 ]
+
+GRAPHENE = {
+    "SCHEMA": "apps.schema.schema.schema"
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
