@@ -1,10 +1,10 @@
 import React from 'react';
 import {UserForm, Users} from "../../components";
+import css from "./UserPage.module.css"
 
 const UsersPage = () => {
     return (
-        <div>
-            <h1>Users</h1>
+        <div className={css.page}>
             <Users/>
             <UserForm/>
         </div>

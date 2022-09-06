@@ -1,0 +1,8 @@
+.bigBox {
+    width: 1000px;
+}
+
+.topBox {
+    display: flex;
+    column-gap: 250px;
+}

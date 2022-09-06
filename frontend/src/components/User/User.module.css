@@ -1,0 +1,10 @@
+.itemBox {
+    display: flex;
+    column-gap: 100px;
+    justify-content: space-between;
+}
+
+.buttons {
+    display: flex;
+    align-items: center;
+}

@@ -1,0 +1,16 @@
+.menu {
+    height: 50px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0 50px;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+    background: ghostwhite;
+}
+
+.menulink {
+    text-decoration: none;
+    color: blue;
+    font-size: 30px;
+}

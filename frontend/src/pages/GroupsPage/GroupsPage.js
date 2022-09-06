@@ -2,6 +2,7 @@ import React, {useEffect} from 'react';
 import {GroupForm, Groups} from "../../components";
 import {graphQLActions} from "../../redux/slices/graphQL.slice";
 import {useDispatch, useSelector} from "react-redux";
+import css from "./GroupsPage.module.css"
 
 const GroupsPage = () => {
     const {groups} = useSelector(state => state.graphQL)
@@ -11,8 +12,7 @@ const GroupsPage = () => {
     }, [dispatch])
     console.log(groups);
     return (
-        <div>
-            <h1>Groups</h1>
+        <div className={css.page}>
             <Groups/>
             <GroupForm/>
         </div>

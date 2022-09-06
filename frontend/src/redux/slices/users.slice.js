@@ -3,7 +3,7 @@ import {userService} from "../../services";
 
 const initialState = {
     users: [],
-    userForUpdate: null
+    userForUpdate: null,
 };
 
 const getAll = createAsyncThunk(
@@ -16,7 +16,7 @@ const getAll = createAsyncThunk(
 
 const addUser = createAsyncThunk(
     'userSlice/addUser',
-    async ({user, group_id}, {dispatch}) => {
+    async ({user, group_id}, {dispatch, rejectWithValue}) => {
         const {data} = await userService.addUser(user, group_id);
         dispatch(create({user: data}))
     }
@@ -62,6 +62,7 @@ const userSlice = createSlice({
             .addCase(getAll.fulfilled, (state, action) => {
                 state.users = action.payload
             })
+
     }
 });
 
