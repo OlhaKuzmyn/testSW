@@ -16,7 +16,7 @@ const getAll = createAsyncThunk(
 
 const addUser = createAsyncThunk(
     'userSlice/addUser',
-    async ({user, group_id}, {dispatch, rejectWithValue}) => {
+    async ({user, group_id}, {dispatch}) => {
         const {data} = await userService.addUser(user, group_id);
         dispatch(create({user: data}))
     }

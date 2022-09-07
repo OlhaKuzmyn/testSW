@@ -1,8 +1,8 @@
 const baseURL = process.env.REACT_APP_API;
 
 const urls = {
-    groups: '/other_groups',
-    users: '/other_users',
+    groups: '/api/other_groups',
+    users: '/api/other_users',
 }
 
 export {

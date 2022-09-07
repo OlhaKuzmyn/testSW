@@ -6,10 +6,8 @@ name = "pypi"
 [packages]
 djangorestframework = "*"
 mysqlclient = "*"
-django-dotenv = "*"
-#djangorestframework-simplejwt = "*"
 django-cors-headers = "*"
-graphene-django = "*"
+#graphene-django = "*"
 django-filter = "*"
 
 [dev-packages]

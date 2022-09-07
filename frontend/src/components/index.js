@@ -3,4 +3,4 @@ export * from "./Users/Users";
 export * from "./Group/Group";
 export * from "./User/User";
 export * from "./GroupForm/GroupForm";
-export * from "./UserForm/UserForm"
+export * from "./UserForm/UserForm";

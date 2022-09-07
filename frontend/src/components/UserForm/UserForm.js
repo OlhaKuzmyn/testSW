@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import {useForm} from "react-hook-form";
 import {useDispatch, useSelector} from "react-redux";
 import {groupActions, userActions} from "../../redux";
@@ -7,6 +7,7 @@ import {userValidator} from "../../validators";
 import css from "./UserForm.module.css"
 
 const UserForm = () => {
+    console.log('form?')
     const {handleSubmit, reset, setValue, register, formState: {errors}} = useForm({mode: "onTouched", resolver: joiResolver(userValidator)});
     const {groups} = useSelector(state => state.groups);
     const {userForUpdate} = useSelector(state => state.users);
@@ -25,6 +26,7 @@ const UserForm = () => {
     }, [userForUpdate, setValue])
 
     const saveUser = async (savedUser) => {
+        console.log(savedUser);
         const group_id = savedUser.group
         delete savedUser.group
         if (userForUpdate){
@@ -35,17 +37,18 @@ const UserForm = () => {
         reset()
     }
 
+
     return (
         <div>
-            <h2>{userForUpdate ? 'Update User' : 'Add User'}</h2>
-            <form onSubmit={handleSubmit(saveUser)}>
-                <div><label>Select group: <select name="groups" id="groups" {...register('group')}>
-                    {groups.map(group => <option value={group.id} key={group.id}>{group.name}</option>)}
-                </select></label></div>
-                <div><label>Username: <input type="text" {...register('username')}/></label></div>
-                {errors.username && <div className={css.errorMessage}>{errors.username.message}</div>}
-                <button>{userForUpdate ? 'Update User' : 'Add User'}</button>
-            </form>
+             <h2>{userForUpdate ? 'Update User' : 'Add User'}</h2>
+             <form onSubmit={handleSubmit(saveUser)}>
+                 <div><label>Select group: <select name={'group'} {...register('group')}>
+                     {groups.map(group => <option value={group.id} key={group.id}>{group.name}</option>)}
+                 </select></label></div>
+                 <div><label>Username: <input type="text" {...register('username')}/></label></div>
+                 {errors.username && <div className={css.errorMessage}>{errors.username.message}</div>}
+                 <button>{userForUpdate ? 'Update User' : 'Add User'}</button>
+             </form>
         </div>
     );
 };

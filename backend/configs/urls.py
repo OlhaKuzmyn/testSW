@@ -15,13 +15,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
-from django.views.decorators.csrf import csrf_exempt
 
-from graphene_django.views import GraphQLView
+# from django.views.decorators.csrf import csrf_exempt
+#
+# from graphene_django.views import GraphQLView
 
 urlpatterns = [
     # path('admin/', admin.site.urls),
     path('other_users', include('apps.other_users.urls')),
     path('other_groups', include('apps.other_groups.urls')),
-    path("graphql", csrf_exempt(GraphQLView.as_view(graphiql=True))),   # (Change graphiql=True to graphiql=False if you do not want to use the GraphiQL API browser.)
+    # path("graphql", csrf_exempt(GraphQLView.as_view(graphiql=True))),   # (Change graphiql=True to graphiql=False if you do not want to use the GraphiQL API browser.)
 ]
