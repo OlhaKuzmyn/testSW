@@ -5,7 +5,8 @@ const userValidator = Joi.object({
         'string.empty': 'Username has to be provided',
         'string.min': 'Username has to be at least 2 characters long',
         'string.max': 'Username has to be 200 characters long or less'
-    })
+    }),
+    group: Joi.string().required()
 })
 
 export {
