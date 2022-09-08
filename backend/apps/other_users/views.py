@@ -9,8 +9,6 @@ class UserListView(ListAPIView):
     queryset = OtherUserModel.objects.all()
     serializer_class = UserSerializer
     filterset_class = UserFilter
-    # def get_queryset(self):
-    #     self.queryset.filter(group_id=)
 
 
 class UserRetrieveDestroyView(RetrieveDestroyAPIView):
@@ -25,3 +23,10 @@ class UpdateUserView(UpdateAPIView):
     def perform_update(self, serializer):
         group_id = self.kwargs.get('group_id')
         serializer.save(group_id=group_id)
+
+
+class FilteredUserView(ListAPIView):
+    serializer_class = UserSerializer
+
+    def get_queryset(self):
+        return OtherUserModel.objects.filter(group_id=1)
