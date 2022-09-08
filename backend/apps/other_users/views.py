@@ -1,4 +1,6 @@
-from rest_framework.generics import ListAPIView, RetrieveDestroyAPIView, UpdateAPIView
+from rest_framework.generics import ListAPIView, RetrieveDestroyAPIView, UpdateAPIView, get_object_or_404
+
+from apps.other_groups.models import OtherGroupModel
 
 from .filters import UserFilter
 from .models import OtherUserModel
@@ -29,4 +31,7 @@ class FilteredUserView(ListAPIView):
     serializer_class = UserSerializer
 
     def get_queryset(self):
-        return OtherUserModel.objects.filter(group_id=1)
+        group_id = self.kwargs.get('group_id')
+        get_object_or_404(OtherGroupModel, pk=group_id)
+        return OtherUserModel.objects.filter(group_id=group_id)
+

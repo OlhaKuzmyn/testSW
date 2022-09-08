@@ -6,5 +6,5 @@ urlpatterns = [
     path('', UserListView.as_view()),
     path('/<int:pk>', UserRetrieveDestroyView.as_view()),
     path('/<int:pk>/update_user/<int:group_id>', UpdateUserView.as_view()),
-    path('/filtered', FilteredUserView.as_view()),
+    path('/filtered/<int:group_id>', FilteredUserView.as_view()),
 ]
