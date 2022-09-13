@@ -19,4 +19,5 @@ COPY ./requirements.txt /tmp/
 
 RUN cd /tmp \
     && pip install --upgrade pip\
-    && pip install --user -r requirements.txt
+    && pip install --user -r requirements.txt\
+    && pip install psycopg2-binary
